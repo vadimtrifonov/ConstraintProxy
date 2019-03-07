@@ -6,7 +6,7 @@ extension ConstraintProxy {
     
     @discardableResult
     public func edges(
-        _ edges: [NSLayoutConstraint.Edge],
+        _ edges: [NSLayoutConstraint.Edge] = .all,
         to constrainable: Constrainable,
         insets: NSDirectionalEdgeInsets = .zero,
         priority: UILayoutPriority = .required
@@ -56,6 +56,31 @@ extension ConstraintProxy {
     }
     
     @discardableResult
+    public func size(
+        to constrainable: Constrainable,
+        multiplier: CGFloat = 1,
+        relation: NSLayoutConstraint.Relation = .equal,
+        priority: UILayoutPriority = .required
+    ) -> [NSLayoutConstraint] {
+        return [
+            dimension(
+                .width,
+                to: constrainable,
+                multiplier: multiplier,
+                relation: relation,
+                priority: priority
+            ),
+            dimension(
+                .height,
+                to: constrainable,
+                multiplier: multiplier,
+                relation: relation,
+                priority: priority
+            )
+        ]
+    }
+    
+    @discardableResult
     public func dimension(
         _ dimension: NSLayoutConstraint.Dimension,
         constant: CGFloat,
@@ -77,7 +102,6 @@ extension ConstraintProxy {
         _ dimension: NSLayoutConstraint.Dimension,
         to constrainable: Constrainable,
         dimension other: NSLayoutConstraint.Dimension? = nil,
-        constant: CGFloat = 0,
         multiplier: CGFloat = 1,
         relation: NSLayoutConstraint.Relation = .equal,
         priority: UILayoutPriority = .required
@@ -86,7 +110,7 @@ extension ConstraintProxy {
             attribute: dimension,
             to: constrainable,
             attribute: other ?? dimension,
-            constant: constant,
+            constant: 0,
             multiplier: multiplier,
             relation: relation,
             priority: priority
@@ -102,14 +126,14 @@ extension ConstraintProxy {
         priority: UILayoutPriority = .required
     ) -> [NSLayoutConstraint] {
         return [
-            center(axis: .horizontal, to: constrainable, constant: constant, priority: priority),
-            center(axis: .vertical, to: constrainable, constant: constant, priority: priority)
+            center(.horizontal, to: constrainable, constant: 0, priority: priority),
+            center(.vertical, to: constrainable, constant: 0, priority: priority)
         ]
     }
     
     @discardableResult
     public func center(
-        axis: NSLayoutConstraint.Axis,
+        _ axis: NSLayoutConstraint.Axis,
         to constrainable: Constrainable,
         constant: CGFloat = 0,
         priority: UILayoutPriority = .required
