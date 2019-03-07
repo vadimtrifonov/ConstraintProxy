@@ -1,43 +1,43 @@
 import UIKit
 
-public extension NSLayoutConstraint {
+extension NSLayoutConstraint {
     
-    enum Edge {
-        case top, left, bottom, right, firstBaseline, lastBaseline
+    public enum Edge {
+        case top, bottom, leading, trailing, firstBaseline, lastBaseline
     }
     
-    enum Dimension {
+    public enum Dimension {
         case width, height
     }
 }
 
-public extension Array where Element == NSLayoutConstraint.Edge {
+extension Array where Element == NSLayoutConstraint.Edge {
     
-    static var all: [NSLayoutConstraint.Edge] {
-        return [.top, .left, .bottom, .right]
+    public static var all: [NSLayoutConstraint.Edge] {
+        return [.top, .bottom, .leading, .trailing]
     }
     
-    static func all(except edge: NSLayoutConstraint.Edge) -> [NSLayoutConstraint.Edge] {
+    public static func all(except edge: NSLayoutConstraint.Edge) -> [NSLayoutConstraint.Edge] {
         return all.filter({ $0 != edge })
     }
 }
 
-internal protocol LayoutConstraintAttributeConvertible {
+protocol ConstraintAttributeConvertible {
     var attribute: NSLayoutConstraint.Attribute { get }
 }
 
-extension NSLayoutConstraint.Edge: LayoutConstraintAttributeConvertible {
+extension NSLayoutConstraint.Edge: ConstraintAttributeConvertible {
     
     var attribute: NSLayoutConstraint.Attribute {
         switch self {
         case .top:
             return .top
-        case .left:
-            return .left
         case .bottom:
             return .bottom
-        case .right:
-            return .right
+        case .leading:
+            return .leading
+        case .trailing:
+            return .trailing
         case .firstBaseline:
             return .firstBaseline
         case .lastBaseline:
@@ -46,7 +46,7 @@ extension NSLayoutConstraint.Edge: LayoutConstraintAttributeConvertible {
     }
 }
 
-extension NSLayoutConstraint.Axis: LayoutConstraintAttributeConvertible {
+extension NSLayoutConstraint.Axis: ConstraintAttributeConvertible {
     
     var attribute: NSLayoutConstraint.Attribute {
         switch self {
@@ -58,7 +58,7 @@ extension NSLayoutConstraint.Axis: LayoutConstraintAttributeConvertible {
     }
 }
 
-extension NSLayoutConstraint.Dimension: LayoutConstraintAttributeConvertible {
+extension NSLayoutConstraint.Dimension: ConstraintAttributeConvertible {
     
     var attribute: NSLayoutConstraint.Attribute {
         switch self {
