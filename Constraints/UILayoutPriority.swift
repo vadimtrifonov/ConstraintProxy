@@ -1,5 +1,5 @@
 import UIKit
 
-public extension UILayoutPriority {
-    static let maxNonRequired = UILayoutPriority(rawValue: UILayoutPriority.required.rawValue - 1)
+extension UILayoutPriority {
+    public static let maxNonRequired = UILayoutPriority(rawValue: UILayoutPriority.required.rawValue - 1)
 }
