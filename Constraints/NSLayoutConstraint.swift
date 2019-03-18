@@ -3,7 +3,15 @@ import UIKit
 extension NSLayoutConstraint {
     
     public enum Edge {
-        case top, bottom, leading, trailing, firstBaseline, lastBaseline
+        case top, bottom, leading, trailing
+    }
+    
+    public enum HorizontalAxis {
+        case leading, trailing, centerX
+    }
+    
+    public enum VerticalAxis {
+        case top, bottom, firstBaseline, lastBaseline, centerY
     }
     
     public enum Dimension {
@@ -27,21 +35,37 @@ extension NSLayoutConstraint.Edge: ConstraintAttributeConvertible {
             return .leading
         case .trailing:
             return .trailing
-        case .firstBaseline:
-            return .firstBaseline
-        case .lastBaseline:
-            return .lastBaseline
         }
     }
 }
 
-extension NSLayoutConstraint.Axis: ConstraintAttributeConvertible {
+extension NSLayoutConstraint.HorizontalAxis: ConstraintAttributeConvertible {
     
     var attribute: NSLayoutConstraint.Attribute {
         switch self {
-        case .horizontal:
+        case .leading:
+            return .leading
+        case .trailing:
+            return .trailing
+        case .centerX:
             return .centerX
-        case .vertical:
+        }
+    }
+}
+
+extension NSLayoutConstraint.VerticalAxis: ConstraintAttributeConvertible {
+    
+    var attribute: NSLayoutConstraint.Attribute {
+        switch self {
+        case .top:
+            return .top
+        case .bottom:
+            return .bottom
+        case .firstBaseline:
+            return .firstBaseline
+        case .lastBaseline:
+            return .lastBaseline
+        case .centerY:
             return .centerY
         }
     }

@@ -11,17 +11,20 @@ extension ConstraintProxy {
         insets: NSDirectionalEdgeInsets = .zero,
         priority: UILayoutPriority = .required
     ) -> [NSLayoutConstraint] {
-        return edges(
-            [.leading, .trailing, .top, .bottom].filter({ $0 != edge }),
-            to: constrainable,
-            insets: insets,
-            priority: priority
-        )
+        return [.top, .bottom, .leading, .trailing].filter({ $0 != edge }).map { edge in
+            constrain(
+                attribute: edge,
+                to: constrainable,
+                attribute: edge,
+                constant: insets.constant(for: edge),
+                priority: priority
+            )
+        }
     }
     
     @discardableResult
     public func edges(
-        _ edges: [NSLayoutConstraint.Edge],
+        _ edges: NSLayoutConstraint.Edge...,
         to constrainable: Constrainable,
         insets: NSDirectionalEdgeInsets = .zero,
         priority: UILayoutPriority = .required
@@ -37,26 +40,170 @@ extension ConstraintProxy {
         }
     }
     
+    // MARK: - Horizontal Axis
+    
     @discardableResult
-    public func edge(
-        _ edge: NSLayoutConstraint.Edge,
+    public func leading(
         to constrainable: Constrainable,
-        edge other: NSLayoutConstraint.Edge? = nil,
+        _ attribute: NSLayoutConstraint.HorizontalAxis = .leading,
         constant: CGFloat = 0,
         relation: NSLayoutConstraint.Relation = .equal,
         priority: UILayoutPriority = .required
     ) -> NSLayoutConstraint {
         return constrain(
-            attribute: edge,
+            attribute: .leading,
             to: constrainable,
-            attribute: other ?? edge,
+            attribute: attribute,
             constant: constant,
             relation: relation,
             priority: priority
         )
     }
     
-    // MARK: - Dimensions
+    @discardableResult
+    public func trailing(
+        to constrainable: Constrainable,
+        _ attribute: NSLayoutConstraint.HorizontalAxis = .trailing,
+        constant: CGFloat = 0,
+        relation: NSLayoutConstraint.Relation = .equal,
+        priority: UILayoutPriority = .required
+    ) -> NSLayoutConstraint {
+        return constrain(
+            attribute: .trailing,
+            to: constrainable,
+            attribute: attribute,
+            constant: constant,
+            relation: relation,
+            priority: priority
+        )
+    }
+    
+    @discardableResult
+    public func centerX(
+        to constrainable: Constrainable,
+        _ attribute: NSLayoutConstraint.HorizontalAxis = .centerX,
+        constant: CGFloat = 0,
+        relation: NSLayoutConstraint.Relation = .equal,
+        priority: UILayoutPriority = .required
+    ) -> NSLayoutConstraint {
+        return constrain(
+            attribute: .centerX,
+            to: constrainable,
+            attribute: attribute,
+            constant: constant,
+            relation: relation,
+            priority: priority
+        )
+    }
+    
+    // MARK: - Vertical Axis
+    
+    @discardableResult
+    public func top(
+        to constrainable: Constrainable,
+        _ attribute: NSLayoutConstraint.VerticalAxis = .top,
+        constant: CGFloat = 0,
+        relation: NSLayoutConstraint.Relation = .equal,
+        priority: UILayoutPriority = .required
+    ) -> NSLayoutConstraint {
+        return constrain(
+            attribute: .top,
+            to: constrainable,
+            attribute: attribute,
+            constant: constant,
+            relation: relation,
+            priority: priority
+        )
+    }
+    
+    @discardableResult
+    public func bottom(
+        to constrainable: Constrainable,
+        _ attribute: NSLayoutConstraint.VerticalAxis = .bottom,
+        constant: CGFloat = 0,
+        relation: NSLayoutConstraint.Relation = .equal,
+        priority: UILayoutPriority = .required
+    ) -> NSLayoutConstraint {
+        return constrain(
+            attribute: .bottom,
+            to: constrainable,
+            attribute: attribute,
+            constant: constant,
+            relation: relation,
+            priority: priority
+        )
+    }
+    
+    @discardableResult
+    public func firstBaseline(
+        to constrainable: Constrainable,
+        _ attribute: NSLayoutConstraint.VerticalAxis = .firstBaseline,
+        constant: CGFloat = 0,
+        relation: NSLayoutConstraint.Relation = .equal,
+        priority: UILayoutPriority = .required
+        ) -> NSLayoutConstraint {
+        return constrain(
+            attribute: .firstBaseline,
+            to: constrainable,
+            attribute: attribute,
+            constant: constant,
+            relation: relation,
+            priority: priority
+        )
+    }
+    
+    
+    @discardableResult
+    public func lastBaseline(
+        to constrainable: Constrainable,
+        _ attribute: NSLayoutConstraint.VerticalAxis = .lastBaseline,
+        constant: CGFloat = 0,
+        relation: NSLayoutConstraint.Relation = .equal,
+        priority: UILayoutPriority = .required
+    ) -> NSLayoutConstraint {
+        return constrain(
+            attribute: .lastBaseline,
+            to: constrainable,
+            attribute: attribute,
+            constant: constant,
+            relation: relation,
+            priority: priority
+        )
+    }
+    
+    @discardableResult
+    public func centerY(
+        to constrainable: Constrainable,
+        _ attribute: NSLayoutConstraint.VerticalAxis = .centerY,
+        constant: CGFloat = 0,
+        relation: NSLayoutConstraint.Relation = .equal,
+        priority: UILayoutPriority = .required
+    ) -> NSLayoutConstraint {
+        return constrain(
+            attribute: .centerY,
+            to: constrainable,
+            attribute: attribute,
+            constant: constant,
+            relation: relation,
+            priority: priority
+        )
+    }
+    
+    // MARK: - Center
+    
+    @discardableResult
+    public func center(
+        to constrainable: Constrainable,
+        constant: CGFloat = 0,
+        priority: UILayoutPriority = .required
+    ) -> [NSLayoutConstraint] {
+        return [
+            centerX(to: constrainable, constant: constant, priority: priority),
+            centerY(to: constrainable, constant: constant, priority: priority)
+        ]
+    }
+    
+    // MARK: - Size
     
     @discardableResult
     public func size(
@@ -65,8 +212,8 @@ extension ConstraintProxy {
         priority: UILayoutPriority = .required
     ) -> [NSLayoutConstraint] {
         return [
-            dimension(.width, constant: size.width, relation: relation, priority: priority),
-            dimension(.height, constant: size.height, relation: relation, priority: priority)
+            width(constant: size.width, relation: relation, priority: priority),
+            height(constant: size.height, relation: relation, priority: priority)
         ]
     }
     
@@ -78,15 +225,13 @@ extension ConstraintProxy {
         priority: UILayoutPriority = .required
     ) -> [NSLayoutConstraint] {
         return [
-            dimension(
-                .width,
+            width(
                 to: constrainable,
                 multiplier: multiplier,
                 relation: relation,
                 priority: priority
             ),
-            dimension(
-                .height,
+            height(
                 to: constrainable,
                 multiplier: multiplier,
                 relation: relation,
@@ -95,15 +240,16 @@ extension ConstraintProxy {
         ]
     }
     
+    // MARK: - Dimensions
+    
     @discardableResult
-    public func dimension(
-        _ dimension: NSLayoutConstraint.Dimension,
+    public func width(
         constant: CGFloat,
         relation: NSLayoutConstraint.Relation = .equal,
         priority: UILayoutPriority = .required
     ) -> NSLayoutConstraint {
         return constrain(
-            attribute: dimension,
+            attribute: NSLayoutConstraint.Dimension.width,
             to: nil,
             attribute: nil,
             constant: constant,
@@ -113,18 +259,17 @@ extension ConstraintProxy {
     }
     
     @discardableResult
-    public func dimension(
-        _ dimension: NSLayoutConstraint.Dimension,
+    public func width(
         to constrainable: Constrainable,
-        dimension other: NSLayoutConstraint.Dimension? = nil,
+        _ dimension: NSLayoutConstraint.Dimension = .width,
         multiplier: CGFloat = 1,
         relation: NSLayoutConstraint.Relation = .equal,
         priority: UILayoutPriority = .required
     ) -> NSLayoutConstraint {
         return constrain(
-            attribute: dimension,
+            attribute: .width,
             to: constrainable,
-            attribute: other ?? dimension,
+            attribute: dimension,
             constant: 0,
             multiplier: multiplier,
             relation: relation,
@@ -132,32 +277,37 @@ extension ConstraintProxy {
         )
     }
     
-    // MARK: - Axes
-    
     @discardableResult
-    public func center(
-        to constrainable: Constrainable,
-        constant: CGFloat = 0,
-        priority: UILayoutPriority = .required
-    ) -> [NSLayoutConstraint] {
-        return [
-            center(.horizontal, to: constrainable, constant: 0, priority: priority),
-            center(.vertical, to: constrainable, constant: 0, priority: priority)
-        ]
-    }
-    
-    @discardableResult
-    public func center(
-        _ axis: NSLayoutConstraint.Axis,
-        to constrainable: Constrainable,
-        constant: CGFloat = 0,
+    public func height(
+        constant: CGFloat,
+        relation: NSLayoutConstraint.Relation = .equal,
         priority: UILayoutPriority = .required
     ) -> NSLayoutConstraint {
         return constrain(
-            attribute: axis,
-            to: constrainable,
-            attribute: axis,
+            attribute: NSLayoutConstraint.Dimension.height,
+            to: nil,
+            attribute: nil,
             constant: constant,
+            relation: relation,
+            priority: priority
+        )
+    }
+
+    @discardableResult
+    public func height(
+        to constrainable: Constrainable,
+        _ dimension: NSLayoutConstraint.Dimension = .height,
+        multiplier: CGFloat = 1,
+        relation: NSLayoutConstraint.Relation = .equal,
+        priority: UILayoutPriority = .required
+    ) -> NSLayoutConstraint {
+        return constrain(
+            attribute: .height,
+            to: constrainable,
+            attribute: dimension,
+            constant: 0,
+            multiplier: multiplier,
+            relation: relation,
             priority: priority
         )
     }
@@ -204,10 +354,6 @@ private extension NSDirectionalEdgeInsets {
             return leading
         case .trailing:
             return -trailing
-        case .firstBaseline:
-            return -bottom
-        case .lastBaseline:
-            return -bottom
         }
     }
 }
