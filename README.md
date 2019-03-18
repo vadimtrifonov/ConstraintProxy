@@ -34,7 +34,7 @@ subview.constrain.edges(to: view, insets: .uniform(10))
 <img align="right" width="52" height="52" src="Images/edges4.png">
 
 ```swift
-subview.constrain.edges(.all(except: .bottom), to: view, insets: .horizontal(10))
+subview.constrain.edges(except: .bottom, to: view, insets: .horizontal(10))
 ```
 
 <img align="right" width="52" height="52" src="Images/edges5.png">

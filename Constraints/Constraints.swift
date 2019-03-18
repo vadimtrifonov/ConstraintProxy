@@ -6,7 +6,22 @@ extension ConstraintProxy {
     
     @discardableResult
     public func edges(
-        _ edges: [NSLayoutConstraint.Edge] = .all,
+        excluding edge: NSLayoutConstraint.Edge? = nil,
+        to constrainable: Constrainable,
+        insets: NSDirectionalEdgeInsets = .zero,
+        priority: UILayoutPriority = .required
+    ) -> [NSLayoutConstraint] {
+        return edges(
+            [.leading, .trailing, .top, .bottom].filter({ $0 != edge }),
+            to: constrainable,
+            insets: insets,
+            priority: priority
+        )
+    }
+    
+    @discardableResult
+    public func edges(
+        _ edges: [NSLayoutConstraint.Edge],
         to constrainable: Constrainable,
         insets: NSDirectionalEdgeInsets = .zero,
         priority: UILayoutPriority = .required

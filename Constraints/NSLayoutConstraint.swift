@@ -11,17 +11,6 @@ extension NSLayoutConstraint {
     }
 }
 
-extension Array where Element == NSLayoutConstraint.Edge {
-    
-    public static var all: [NSLayoutConstraint.Edge] {
-        return [.top, .bottom, .leading, .trailing]
-    }
-    
-    public static func all(except edge: NSLayoutConstraint.Edge) -> [NSLayoutConstraint.Edge] {
-        return all.filter({ $0 != edge })
-    }
-}
-
 protocol ConstraintAttributeConvertible {
     var attribute: NSLayoutConstraint.Attribute { get }
 }

@@ -1,5 +1,10 @@
 import UIKit
 
+public protocol Constrainable: AnyObject {}
+
+extension UIView: Constrainable {}
+extension UILayoutGuide: Constrainable {}
+
 public struct ConstraintProxy {
     let base: Constrainable
     
@@ -8,16 +13,9 @@ public struct ConstraintProxy {
     }
 }
 
-public protocol Constrainable: AnyObject {
-    var constrain: ConstraintProxy { get }
-}
-
 extension Constrainable {
     
-    public var constrain: ConstraintProxy {
+    public var constraint: ConstraintProxy {
         return ConstraintProxy(self)
     }
 }
-
-extension UIView: Constrainable {}
-extension UILayoutGuide: Constrainable {}
