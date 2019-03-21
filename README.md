@@ -4,7 +4,7 @@ Auto Layout convenience with minimal API surface area, but high expressive power
 
 ## Features
 
-- [x] Minimal API accessible through `constrain` proxy
+- [x] Minimal API accessible through `constraint` proxy
 - [x] Direct access to created `NSLayoutConstraint`
 - [x] `UILayoutGuide` support
 - [x] New constant `UILayoutPriority.maxNonRequired` (999) for resolving layout ambiguities
@@ -13,114 +13,173 @@ Auto Layout convenience with minimal API surface area, but high expressive power
 
 ### Edges
 
-<img align="right" width="52" height="52" src="Images/edges1.png">
+<img align="right" width="52" height="52" src="Images/image0.png">
 
 ```swift
-subview.constrain.edges(to: view)
+subview.constraint.edges(to: view)
 ```
 
-<img align="right" width="52" height="52" src="Images/edges2.png">
+<img align="right" width="52" height="52" src="Images/image1.png">
 
 ```swift
-subview.constrain.edges(to: view.readableContentGuide)
+subview.constraint.edges(to: view, insets: .uniform(10))
 ```
 
-<img align="right" width="52" height="52" src="Images/edges3.png">
+<img align="right" width="52" height="52" src="Images/image2.png">
 
 ```swift
-subview.constrain.edges(to: view, insets: .uniform(10))
+subview.constraint.edges(excluding: .bottom, to: view, insets: .horizontal(10))
 ```
 
-<img align="right" width="52" height="52" src="Images/edges4.png">
+<img align="right" width="52" height="52" src="Images/image3.png">
 
 ```swift
-subview.constrain.edges(except: .bottom, to: view, insets: .horizontal(10))
+subview.constraint.edges(.bottom, .leading, to: view, insets: .leading(10))
 ```
 
-<img align="right" width="52" height="52" src="Images/edges5.png">
+### Horizontal axis
+
+<img align="right" width="52" height="52" src="Images/image4.png">
 
 ```swift
-subview.constrain.edges([.top, .leading], to: view, insets: .leading(10))
+subview.constraint.trailing(to: view)
 ```
 
-### Edge
-
-<img align="right" width="52" height="52" src="Images/edge1.png">
+<img align="right" width="52" height="52" src="Images/image5.png">
 
 ```swift
-subview.constrain.edge(.leading, to: view)
+subview.constraint.centerX(to: view)
 ```
 
-<img align="right" width="52" height="52" src="Images/edge2.png">
+<img align="right" width="52" height="52" src="Images/image6.png">
 
 ```swift
-subview.constrain.edge(.trailing, to: view, edge: .trailing)
+subview.constraint.leading(to: view, .centerX)
 ```
 
-<img align="right" width="52" height="52" src="Images/edge3.png">
+<img align="right" width="52" height="52" src="Images/image7.png">
 
 ```swift
-subview.constrain.edge(.trailing, to: view, edge: .trailing, constant: -10, relation: .greaterThanOrEqual)
+subview.constraint.trailing(to: view, .leading, constant: 10)
 ```
 
-### Size
+### Vertical axis
 
-<img align="right" width="52" height="52" src="Images/size1.png">
+<img align="right" width="52" height="52" src="Images/image8.png">
 
 ```swift
-subview.constrain.size(CGSize(width: 75, height: 75))
+subview.constraint.bottom(to: view)
 ```
 
-<img align="right" width="52" height="52" src="Images/size2.png">
+<img align="right" width="52" height="52" src="Images/image9.png">
 
 ```swift
-subview.constrain.size(to: view)
+subview.constraint.centerY(to: view)
 ```
 
-<img align="right" width="52" height="52" src="Images/size3.png">
+<img align="right" width="52" height="52" src="Images/image10.png">
 
 ```swift
-subview.constrain.size(to: view, multiplier: 0.5)
+subview.constraint.top(to: view, .centerY)
 ```
 
-### Dimension
-
-<img align="right" width="52" height="52" src="Images/dimension1.png">
+<img align="right" width="52" height="52" src="Images/image11.png">
 
 ```swift
-subview.constrain.dimension(.width, to: view)
+subview.constraint.bottom(to: view, .top, constant: 10)
 ```
 
-<img align="right" width="52" height="52" src="Images/dimension2.png">
+<img align="right" width="52" height="52" src="Images/image12.png">
 
 ```swift
-subview.constrain.dimension(.height, to: view, dimension: .width)
-```
-
-<img align="right" width="52" height="52" src="Images/dimension3.png">
-
-```swift
-subview.constrain.dimension(.height, to: view, dimension: .width, multiplier: 0.5)
+subview.constraint.lastBaseline(to: view)
 ```
 
 ### Center
 
-<img align="right" width="52" height="52" src="Images/center1.png">
+<img align="right" width="52" height="52" src="Images/image13.png">
+
 
 ```swift
-subview.constrain.center(to: view)
+subview.constraint.center(to: view)
 ```
 
-<img align="right" width="52" height="52" src="Images/center2.png">
+### Size
+
+<img align="right" width="52" height="52" src="Images/image14.png">
 
 ```swift
-subview.constrain.center(.horizontal, to: view)
+subview.constraint.size(CGSize(width: 75, height: 75))
 ```
 
-<img align="right" width="52" height="52" src="Images/center3.png">
+<img align="right" width="52" height="52" src="Images/image15.png">
 
 ```swift
-subview.constrain.center(.vertical, to: view, constant: 10)
+subview.constraint.size(to: view)
+```
+
+<img align="right" width="52" height="52" src="Images/image16.png">
+
+```swift
+subview.constraint.size(to: view, multiplier: 0.5)
+```
+
+### Dimension
+
+<img align="right" width="52" height="52" src="Images/image17.png">
+
+```swift
+subview.constraint.width(to: view)
+```
+
+<img align="right" width="52" height="52" src="Images/image18.png">
+
+```swift
+subview.constraint.height(to: view, .width)
+```
+
+<img align="right" width="52" height="52" src="Images/image19.png">
+
+```swift
+subview.constraint.height(to: view, multiplier: 0.5)
+```
+
+<img align="right" width="52" height="52" src="Images/image20.png">
+
+```swift
+subview.constraint.width(constant: 50)
+```
+
+<img align="right" width="52" height="52" src="Images/image21.png">
+
+```swift
+subview.constraint.height(constant: 75)
+```
+
+### Layout guide
+
+```swift
+subview.constraint.edges(to: view.layoutMarginsGuide)
+```
+
+```swift
+subview.constraint.lastBaseline(to: view.safeAreaLayoutGuide, .bottom)
+```
+
+```swift
+subview.constraint.width(to: view.readableContentGuide)
+```
+
+### Priority
+
+```swift
+subview.constraint.leading(to: view, priority: .defaultLow)
+```
+
+### Relation
+
+```swift
+subview.constraint.leading(to: view, relation: .greaterThanOrEqual)
 ```
 
 ## Installation
