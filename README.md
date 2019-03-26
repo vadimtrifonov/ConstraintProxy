@@ -1,4 +1,4 @@
-# Constraints
+# Constraint Proxy
 
 Auto Layout convenience with minimal API surface area, but high expressive power
 
@@ -7,7 +7,8 @@ Auto Layout convenience with minimal API surface area, but high expressive power
 - [x] Minimal API accessible through `constraint` proxy
 - [x] Direct access to created `NSLayoutConstraint`
 - [x] `UILayoutGuide` support
-- [x] New constant `UILayoutPriority.maxNonRequired` (999) for resolving layout ambiguities
+- [x] New `UILayoutPriority` constants including `.maxNonRequired` (999) for resolving layout ambiguities
+- [x] `translatesAutoresizingMaskIntoConstraints` is automatically set to `false` on a target
 
 ## Usage
 
@@ -158,6 +159,8 @@ subview.constraint.height(constant: 75)
 
 ### Layout guide
 
+`UIView` and `UILayoutGuide` can be used interchangeably.
+
 ```swift
 subview.constraint.edges(to: view.layoutMarginsGuide)
 ```
@@ -170,16 +173,28 @@ subview.constraint.lastBaseline(to: view.safeAreaLayoutGuide, .bottom)
 subview.constraint.width(to: view.readableContentGuide)
 ```
 
+### Relation
+
+Allmost all constraint methods have `relation` parameter.
+
+```swift
+subview.constraint.leading(to: view, relation: .greaterThanOrEqual)
+```
+
 ### Priority
+
+All constraint methods have `priority` parameter.
 
 ```swift
 subview.constraint.leading(to: view, priority: .defaultLow)
 ```
 
-### Relation
+### Activation
+
+Constraints are created active by default. All constraint methods have `active` parameter to opt out of this.
 
 ```swift
-subview.constraint.leading(to: view, relation: .greaterThanOrEqual)
+subview.constraint.leading(to: view, active: false)
 ```
 
 ## Installation

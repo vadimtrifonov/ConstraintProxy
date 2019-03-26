@@ -13,6 +13,7 @@
 		5DBB1275222DCF6900274E35 /* NSDirectionalEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBB1271222DCF6900274E35 /* NSDirectionalEdgeInsets.swift */; };
 		5DBB1276222DCF6900274E35 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBB1272222DCF6900274E35 /* NSLayoutConstraint.swift */; };
 		5DC053D72230709F0004F3F2 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC053D62230709F0004F3F2 /* Constraints.swift */; };
+		5DE6C812224A2EDF003C5DCD /* ConstraintProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6C811224A2EDF003C5DCD /* ConstraintProxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5DBB1271222DCF6900274E35 /* NSDirectionalEdgeInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDirectionalEdgeInsets.swift; sourceTree = "<group>"; };
 		5DBB1272222DCF6900274E35 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
 		5DC053D62230709F0004F3F2 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		5DE6C811224A2EDF003C5DCD /* ConstraintProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintProxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +59,10 @@
 			isa = PBXGroup;
 			children = (
 				5DBB126F222DCF6900274E35 /* Constrainable.swift */,
+				5DE6C811224A2EDF003C5DCD /* ConstraintProxy.swift */,
 				5DC053D62230709F0004F3F2 /* Constraints.swift */,
-				5DBB1272222DCF6900274E35 /* NSLayoutConstraint.swift */,
 				5DBB1271222DCF6900274E35 /* NSDirectionalEdgeInsets.swift */,
+				5DBB1272222DCF6900274E35 /* NSLayoutConstraint.swift */,
 				5DBB1270222DCF6900274E35 /* UILayoutPriority.swift */,
 				5DBB1267222DCF4500274E35 /* Constraints.h */,
 				5DBB1268222DCF4500274E35 /* Info.plist */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DBB1273222DCF6900274E35 /* Constrainable.swift in Sources */,
+				5DE6C812224A2EDF003C5DCD /* ConstraintProxy.swift in Sources */,
 				5DBB1274222DCF6900274E35 /* UILayoutPriority.swift in Sources */,
 				5DBB1275222DCF6900274E35 /* NSDirectionalEdgeInsets.swift in Sources */,
 				5DC053D72230709F0004F3F2 /* Constraints.swift in Sources */,
