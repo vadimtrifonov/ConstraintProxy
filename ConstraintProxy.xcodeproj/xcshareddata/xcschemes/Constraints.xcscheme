@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5DBB1263222DCF4500274E35"
-               BuildableName = "Constraints.framework"
-               BlueprintName = "Constraints"
-               ReferencedContainer = "container:Constraints.xcodeproj">
+               BuildableName = "ConstraintProxy.framework"
+               BlueprintName = "ConstraintProxy"
+               ReferencedContainer = "container:ConstraintProxy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5DBB1263222DCF4500274E35"
-            BuildableName = "Constraints.framework"
-            BlueprintName = "Constraints"
-            ReferencedContainer = "container:Constraints.xcodeproj">
+            BuildableName = "ConstraintProxy.framework"
+            BlueprintName = "ConstraintProxy"
+            ReferencedContainer = "container:ConstraintProxy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5DBB1263222DCF4500274E35"
-            BuildableName = "Constraints.framework"
-            BlueprintName = "Constraints"
-            ReferencedContainer = "container:Constraints.xcodeproj">
+            BuildableName = "ConstraintProxy.framework"
+            BlueprintName = "ConstraintProxy"
+            ReferencedContainer = "container:ConstraintProxy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

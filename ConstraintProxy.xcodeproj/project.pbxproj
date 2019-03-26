@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5DBB1269222DCF4500274E35 /* Constraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DBB1267222DCF4500274E35 /* Constraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DBB1269222DCF4500274E35 /* ConstraintProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DBB1267222DCF4500274E35 /* ConstraintProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DBB1273222DCF6900274E35 /* Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBB126F222DCF6900274E35 /* Constrainable.swift */; };
 		5DBB1274222DCF6900274E35 /* UILayoutPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBB1270222DCF6900274E35 /* UILayoutPriority.swift */; };
 		5DBB1275222DCF6900274E35 /* NSDirectionalEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBB1271222DCF6900274E35 /* NSDirectionalEdgeInsets.swift */; };
@@ -17,8 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5DBB1264222DCF4500274E35 /* Constraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Constraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DBB1267222DCF4500274E35 /* Constraints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constraints.h; sourceTree = "<group>"; };
+		5DBB1264222DCF4500274E35 /* ConstraintProxy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ConstraintProxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DBB1267222DCF4500274E35 /* ConstraintProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstraintProxy.h; sourceTree = "<group>"; };
 		5DBB1268222DCF4500274E35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DBB126F222DCF6900274E35 /* Constrainable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constrainable.swift; sourceTree = "<group>"; };
 		5DBB1270222DCF6900274E35 /* UILayoutPriority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILayoutPriority.swift; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		5DBB125A222DCF4500274E35 = {
 			isa = PBXGroup;
 			children = (
-				5DBB1266222DCF4500274E35 /* Constraints */,
+				5DBB1266222DCF4500274E35 /* ConstraintProxy */,
 				5DBB1265222DCF4500274E35 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,12 +50,12 @@
 		5DBB1265222DCF4500274E35 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5DBB1264222DCF4500274E35 /* Constraints.framework */,
+				5DBB1264222DCF4500274E35 /* ConstraintProxy.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5DBB1266222DCF4500274E35 /* Constraints */ = {
+		5DBB1266222DCF4500274E35 /* ConstraintProxy */ = {
 			isa = PBXGroup;
 			children = (
 				5DBB126F222DCF6900274E35 /* Constrainable.swift */,
@@ -64,10 +64,10 @@
 				5DBB1271222DCF6900274E35 /* NSDirectionalEdgeInsets.swift */,
 				5DBB1272222DCF6900274E35 /* NSLayoutConstraint.swift */,
 				5DBB1270222DCF6900274E35 /* UILayoutPriority.swift */,
-				5DBB1267222DCF4500274E35 /* Constraints.h */,
+				5DBB1267222DCF4500274E35 /* ConstraintProxy.h */,
 				5DBB1268222DCF4500274E35 /* Info.plist */,
 			);
-			path = Constraints;
+			path = ConstraintProxy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,16 +77,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DBB1269222DCF4500274E35 /* Constraints.h in Headers */,
+				5DBB1269222DCF4500274E35 /* ConstraintProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5DBB1263222DCF4500274E35 /* Constraints */ = {
+		5DBB1263222DCF4500274E35 /* ConstraintProxy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5DBB126C222DCF4500274E35 /* Build configuration list for PBXNativeTarget "Constraints" */;
+			buildConfigurationList = 5DBB126C222DCF4500274E35 /* Build configuration list for PBXNativeTarget "ConstraintProxy" */;
 			buildPhases = (
 				5DBB125F222DCF4500274E35 /* Headers */,
 				5DBB1260222DCF4500274E35 /* Sources */,
@@ -97,9 +97,9 @@
 			);
 			dependencies = (
 			);
-			name = Constraints;
+			name = ConstraintProxy;
 			productName = Constraints;
-			productReference = 5DBB1264222DCF4500274E35 /* Constraints.framework */;
+			productReference = 5DBB1264222DCF4500274E35 /* ConstraintProxy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -117,7 +117,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5DBB125E222DCF4500274E35 /* Build configuration list for PBXProject "Constraints" */;
+			buildConfigurationList = 5DBB125E222DCF4500274E35 /* Build configuration list for PBXProject "ConstraintProxy" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -129,7 +129,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5DBB1263222DCF4500274E35 /* Constraints */,
+				5DBB1263222DCF4500274E35 /* ConstraintProxy */,
 			);
 		};
 /* End PBXProject section */
@@ -294,7 +294,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Constraints/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ConstraintProxy/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -302,7 +302,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vadimtrifonov.Constraints;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vadimtrifonov.ConstraintProxy;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -322,7 +322,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Constraints/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ConstraintProxy/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -330,7 +330,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vadimtrifonov.Constraints;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vadimtrifonov.ConstraintProxy;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -341,7 +341,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5DBB125E222DCF4500274E35 /* Build configuration list for PBXProject "Constraints" */ = {
+		5DBB125E222DCF4500274E35 /* Build configuration list for PBXProject "ConstraintProxy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5DBB126A222DCF4500274E35 /* Debug */,
@@ -350,7 +350,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5DBB126C222DCF4500274E35 /* Build configuration list for PBXNativeTarget "Constraints" */ = {
+		5DBB126C222DCF4500274E35 /* Build configuration list for PBXNativeTarget "ConstraintProxy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5DBB126D222DCF4500274E35 /* Debug */,
