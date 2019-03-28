@@ -3,7 +3,7 @@ import UIKit
 extension NSLayoutConstraint {
     
     public enum Edge {
-        case top, bottom, leading, trailing
+        case top, leading, bottom, trailing
     }
     
     public enum HorizontalAxis {
@@ -29,10 +29,10 @@ extension NSLayoutConstraint.Edge: ConstraintAttributeConvertible {
         switch self {
         case .top:
             return .top
-        case .bottom:
-            return .bottom
         case .leading:
             return .leading
+        case .bottom:
+            return .bottom
         case .trailing:
             return .trailing
         }

@@ -6,12 +6,12 @@ extension NSDirectionalEdgeInsets {
         return NSDirectionalEdgeInsets(top: inset, leading: 0, bottom: 0, trailing: 0)
     }
     
-    public static func bottom(_ inset: CGFloat) -> NSDirectionalEdgeInsets {
-        return NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: inset, trailing: 0)
-    }
-    
     public static func leading(_ inset: CGFloat) -> NSDirectionalEdgeInsets {
         return NSDirectionalEdgeInsets(top: 0, leading: inset, bottom: 0, trailing: 0)
+    }
+    
+    public static func bottom(_ inset: CGFloat) -> NSDirectionalEdgeInsets {
+        return NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: inset, trailing: 0)
     }
     
     public static func trailing(_ inset: CGFloat) -> NSDirectionalEdgeInsets {

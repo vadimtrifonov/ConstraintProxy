@@ -12,7 +12,7 @@ extension ConstraintProxy {
         priority: UILayoutPriority = .required,
         active: Bool = true
     ) -> [NSLayoutConstraint] {
-        return [.top, .bottom, .leading, .trailing].filter({ $0 != edge }).map { edge in
+        return [.top, .leading, .bottom, .trailing].filter({ $0 != edge }).map { edge in
             constraint(
                 attribute: edge,
                 to: constrainable,
@@ -376,10 +376,10 @@ private extension NSDirectionalEdgeInsets {
         switch edge {
         case .top:
             return top
-        case .bottom:
-            return -bottom
         case .leading:
             return leading
+        case .bottom:
+            return -bottom
         case .trailing:
             return -trailing
         }
