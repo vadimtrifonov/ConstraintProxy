@@ -214,13 +214,12 @@ extension ConstraintProxy {
     @discardableResult
     public func center(
         to constrainable: Constrainable,
-        constant: CGFloat = 0,
         priority: UILayoutPriority = .required,
         active: Bool = true
     ) -> [NSLayoutConstraint] {
         return [
-            centerX(to: constrainable, constant: constant, priority: priority, active: active),
-            centerY(to: constrainable, constant: constant, priority: priority, active: active)
+            centerX(to: constrainable, priority: priority, active: active),
+            centerY(to: constrainable, priority: priority, active: active)
         ]
     }
     
@@ -288,6 +287,7 @@ extension ConstraintProxy {
         to constrainable: Constrainable,
         _ dimension: NSLayoutConstraint.Dimension = .width,
         multiplier: CGFloat = 1,
+        constant: CGFloat = 0,
         relation: NSLayoutConstraint.Relation = .equal,
         priority: UILayoutPriority = .required,
         active: Bool = true
@@ -297,6 +297,7 @@ extension ConstraintProxy {
             to: constrainable,
             attribute: dimension,
             multiplier: multiplier,
+            constant: constant,
             relation: relation,
             priority: priority,
             active: active
@@ -318,12 +319,13 @@ extension ConstraintProxy {
             active: active
         )
     }
-
+    
     @discardableResult
     public func height(
         to constrainable: Constrainable,
         _ dimension: NSLayoutConstraint.Dimension = .height,
         multiplier: CGFloat = 1,
+        constant: CGFloat = 0,
         relation: NSLayoutConstraint.Relation = .equal,
         priority: UILayoutPriority = .required,
         active: Bool = true
@@ -333,6 +335,7 @@ extension ConstraintProxy {
             to: constrainable,
             attribute: dimension,
             multiplier: multiplier,
+            constant: constant,
             relation: relation,
             priority: priority,
             active: active
@@ -346,8 +349,8 @@ extension ConstraintProxy {
         attribute: T,
         to constrainable: Constrainable? = nil,
         attribute other: T? = nil,
-        constant: CGFloat = 0,
         multiplier: CGFloat = 1,
+        constant: CGFloat = 0,
         relation: NSLayoutConstraint.Relation = .equal,
         priority: UILayoutPriority = .required,
         active: Bool = true
