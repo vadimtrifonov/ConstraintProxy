@@ -205,5 +205,5 @@ subview.constraint.leading(to: view, active: false)
 
 ### Carthage
 ```
-github "vadimtrifonov/Constraints"
+github "vadimtrifonov/ConstraintProxy"
 ```
