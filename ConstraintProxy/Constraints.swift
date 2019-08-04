@@ -90,6 +90,7 @@ extension ConstraintProxy {
     public func centerX(
         to constrainable: Constrainable,
         _ attribute: NSLayoutConstraint.HorizontalAxis = .centerX,
+        multiplier: CGFloat = 1,
         constant: CGFloat = 0,
         relation: NSLayoutConstraint.Relation = .equal,
         priority: UILayoutPriority = .required,
@@ -99,6 +100,7 @@ extension ConstraintProxy {
             attribute: .centerX,
             to: constrainable,
             attribute: attribute,
+            multiplier: multiplier,
             constant: constant,
             relation: relation,
             priority: priority,
@@ -193,6 +195,7 @@ extension ConstraintProxy {
     public func centerY(
         to constrainable: Constrainable,
         _ attribute: NSLayoutConstraint.VerticalAxis = .centerY,
+        multiplier: CGFloat = 1,
         constant: CGFloat = 0,
         relation: NSLayoutConstraint.Relation = .equal,
         priority: UILayoutPriority = .required,
@@ -202,6 +205,7 @@ extension ConstraintProxy {
             attribute: .centerY,
             to: constrainable,
             attribute: attribute,
+            multiplier: multiplier,
             constant: constant,
             relation: relation,
             priority: priority,

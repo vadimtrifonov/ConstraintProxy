@@ -201,7 +201,7 @@ subview.constraint.leading(to: view, active: false)
 
 ### Requirements
 - iOS 11.0+
-- Swift 4.2+
+- Swift 5.0+
 
 ### Carthage
 ```
